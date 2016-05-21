@@ -4,23 +4,23 @@
 #include "intList.h"
 #include "edgeList.h"
 
-struct Edge{
+struct Edge{ // Data structure for our edges of our graph
    int from;
    int to;
    double weight;
 };
 
-struct IntListNode{
+struct IntListNode{ // Nodes for our linkedlist to keep track of edges
    int element;
    IntList next;
 }; 
 
-struct EdgeListNode{
+struct EdgeListNode{ // Special data structure for edges with weight
    EdgeInfo element;
    EdgeList next;
 }; 
 
-IntList* initEdges(int n){
+IntList* initEdges(int n){ //Creates and initializes a Linked List to null of size n
    int i;
    IntList* adjVert = calloc(n+1,sizeof(IntList));
    for(i=1;i<n+1;i++){
