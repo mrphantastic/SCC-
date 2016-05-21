@@ -3,23 +3,12 @@
 #include "intList.h"
 #include "stack.h"
 
-/*
-struct map{
-   int vertex;
-   int color[vertex];
-   int parent[vertex];
-   int dTime[vertex];
-   int fTime[vertex];
-};
-*/
-
-int color[1024];
-char color2[1024];
+int color[1024];    // Initialize arrays that keep track of discover time
+char color2[1024];  
 int parent[1024];
 int dTime[1024];
 int fTime[1024];
 int time;
-
 
 void dfsT(int v, IntList adjVert[], int color[], int leader, int scc[]){
    time++;
