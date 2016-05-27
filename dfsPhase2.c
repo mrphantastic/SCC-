@@ -3,12 +3,14 @@
 #include "intList.h"
 #include "stack.h"
 
-int color[1024];    // Initialize arrays that keep track of discover time
-char color2[1024];  
+
+int color[1024];
+char color2[1024];
 int parent[1024];
 int dTime[1024];
 int fTime[1024];
 int time;
+
 
 void dfsT(int v, IntList adjVert[], int color[], int leader, int scc[]){
    time++;
@@ -16,7 +18,6 @@ void dfsT(int v, IntList adjVert[], int color[], int leader, int scc[]){
    color[v] = 1;
    scc[v]=leader;
    IntList remAdj = adjVert[v];
-   //printList(remAdj);
    while(remAdj!=NULL){
       int w = intFirst(remAdj);
       if(color[w] == 0){
@@ -29,9 +30,7 @@ void dfsT(int v, IntList adjVert[], int color[], int leader, int scc[]){
    }
    time++;
    fTime[v]=time; 
-   color[v]=-1;
-   
-   //printf("%d was marked black\n", v); 
+   color[v]=-1
    return;
 }
 

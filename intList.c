@@ -4,10 +4,14 @@
 #include<stdlib.h>
 #include<string.h>
 
+////////// DATA STRUCTURES //////////
+
 struct IntListNode{
    int element;
    IntList next;
 }; const IntList intNil = NULL;
+
+////////// FUNCTIONS //////////
 
 int intFirst(IntList oldL){
    return oldL->element;

@@ -105,7 +105,7 @@ int main(int argc, char* argv[]){
         adjVertW = initEdgesW(n);
         while(fgets(line,1024, in)){
            Edge e = parseEdge(line);
-           loadEdges(line,e, adjVert);
+           loadEdges(e, adjVert);
         }
         fclose(in);
         findSCCs(n,S,scc,adjVert,tGraph);
@@ -134,27 +134,27 @@ int main(int argc, char* argv[]){
    if(u==0&&w==0){
       while(fgets(line,1024, fp)){
          Edge e = parseEdge(line);
-         loadEdges(line,e, adjVert);
+         loadEdges(e, adjVert);
       }
    }
    if(u==1&&w==0){
       while(fgets(line,1024, fp)){
          Edge e = parseEdge(line);
-         loadEdges(line,e, adjVert);
-         loadEdgesReverse(line,e, adjVert);
+         loadEdges(e, adjVert);
+         loadEdgesReverse(e, adjVert);
       }
    }   
    if(u==0&&w==1){
       while(fgets(line,1024, fp)){
          Edge e = parseEdge(line);
-         loadEdgesW(line,e, adjVertW);
+         loadEdgesW(e, adjVertW);
       }
    }
    if(u==1&&w==1){
       while(fgets(line,1024, fp)){
          Edge e = parseEdge(line);
-         loadEdgesW(line,e, adjVertW);
-         loadEdgesWReverse(line,e, adjVertW);
+         loadEdgesW(e, adjVertW);
+         loadEdgesWReverse(e, adjVertW);
       }   
    }
    

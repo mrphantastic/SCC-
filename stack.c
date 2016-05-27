@@ -3,13 +3,8 @@
 #include "stack.h"
 #define STACK_MAX 100
 
-/*
-struct Stack{
-   int data[STACK_MAX];
-   int top;
-}; //typedef struct Stack Stack;
-*/
-Stack* initStack(){
+
+Stack* initStack()
    Stack* S = calloc(1,sizeof(Stack));
    S->top = 0;
    return S;

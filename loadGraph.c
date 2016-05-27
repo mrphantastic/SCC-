@@ -4,23 +4,27 @@
 #include "intList.h"
 #include "edgeList.h"
 
-struct Edge{ // Data structure for our edges of our graph
+////////// DATA STRUCTURES //////////
+struct Edge{
    int from;
    int to;
    double weight;
 };
 
-struct IntListNode{ // Nodes for our linkedlist to keep track of edges
+struct IntListNode{ 
    int element;
    IntList next;
 }; 
 
-struct EdgeListNode{ // Special data structure for edges with weight
+struct EdgeListNode{
    EdgeInfo element;
    EdgeList next;
-}; 
+};
+ 
+////////// FUNCTIONS //////////
 
-IntList* initEdges(int n){ //Creates and initializes a Linked List to null of size n
+/* UNWEIGHTED FUNCTIONS */
+IntList* initEdges(int n){
    int i;
    IntList* adjVert = calloc(n+1,sizeof(IntList));
    for(i=1;i<n+1;i++){
@@ -29,38 +33,37 @@ IntList* initEdges(int n){ //Creates and initializes a Linked List to null of si
    return adjVert;
 }
 
+void loadEdges(Edge e, IntList adjVert[]){
+   adjVert[e->from] = intCons(e->to,adjVert[e->from]);
+}
+
+void loadEdgesReverse(Edge e, IntList adjVert[]){
+   adjVert[e->to] = intCons(e->from,adjVert[e->to]);
+}
+
+/* WEIGHTED FUNCTIONS */
 EdgeList* initEdgesW(int n){
    int i;
    EdgeList* adjVertW = calloc(n+1,sizeof(EdgeList));
    for(i=1;i<n+1;i++){
       adjVertW[i]=NULL;
    }
-   return adjVertW;   
+   return adjVertW;
 }
 
-void loadEdges(char line[],Edge e, IntList adjVert[]){
-   adjVert[e->from] = intCons(e->to,adjVert[e->from]);
-  // return adjVert;
-}
-
-void loadEdgesReverse(char line[], Edge e, IntList adjVert[]){
-   adjVert[e->to] = intCons(e->from,adjVert[e->to]);
-}
-
-void loadEdgesW(char line[], Edge e, EdgeList adjVertW[]){
+void loadEdgesW(Edge e, EdgeList adjVertW[]){
    EdgeInfo newI;
    newI.to=e->to;
    newI.wgt=e->weight; 
    adjVertW[e->from] = edgeCons(newI,adjVertW[e->from]);
 }
 
-void loadEdgesWReverse(char line[], Edge e, EdgeList adjVertW[]){
+void loadEdgesWReverse(Edge e, EdgeList adjVertW[]){
    EdgeInfo newI;
    newI.to=e->from;
    newI.wgt=e->weight;
    adjVertW[e->to] = edgeCons(newI,adjVertW[e->to]);
 }
-
 
 Edge parseEdge(char line[]){
    Edge newE = calloc (1,sizeof(struct Edge));
@@ -74,6 +77,8 @@ Edge parseEdge(char line[]){
    return newE;
 }
 
+/* PRINT FUNCTIONS */
+
 void printList(IntList L){
    if(L->next != NULL){
       printList(L->next);
@@ -81,7 +86,7 @@ void printList(IntList L){
    printf("%d ", intFirst(L));
 
 }
- 
+
 void printListW(EdgeList L){
    EdgeInfo e=edgeFirst(L);
    if(L->next!=NULL){

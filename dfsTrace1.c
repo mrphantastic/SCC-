@@ -4,16 +4,6 @@
 #include "stack.h"
 #include "edgeList.h"
 
-/*
-struct map{
-   int vertex;
-   int color[vertex];
-   int parent[vertex];
-   int dTime[vertex];
-   int fTime[vertex];
-};
-*/
-
 int color[1024];
 char color2[1024];
 int parent[1024];
@@ -83,7 +73,6 @@ void dfsTrace(int v, IntList adjVert[], Stack* S){
    dTime[v]=time;
    color[v] = 1;
    IntList remAdj = adjVert[v];
-   //printList(remAdj);
    while(remAdj!=NULL){
       int w = intFirst(remAdj);
       if(color[w] == 0){
@@ -98,8 +87,6 @@ void dfsTrace(int v, IntList adjVert[], Stack* S){
    fTime[v]=time; 
    color[v]=-1;
    stackPush(S,v);
-   
-   //printf("%d was marked black\n", v); 
    return;
 }
 

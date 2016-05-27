@@ -9,12 +9,12 @@ IntList* initEdges(int n);
 EdgeList* initEdgesW(int n);
 //precondition: e!=NULL
 //postcondition: adjVert is filled with an intList at the correct index with information about e
-void loadEdges(char line[], Edge e, IntList adjVert[]);
-void loadEdgesReverse(char line[], Edge e, IntList adjVert[]);
+void loadEdges(Edge e, IntList adjVert[]);
+void loadEdgesReverse(Edge e, IntList adjVert[]);
 //precondition: e!=NULL
 //postcondition: adjVert is filled with an edgeList at the correct index with information about e
-void loadEdgesW(char line[], Edge e, EdgeList adjVertW[]);
-void loadEdgesWReverse(char line[], Edge e, EdgeList adjVertW[]);
+void loadEdgesW(Edge e, EdgeList adjVertW[]);
+void loadEdgesWReverse(Edge e, EdgeList adjVertW[]);
 //precondition: line is correct format (int *space* int)
 //postcondition: creates an edge with information on line
 Edge parseEdge(char line[]);

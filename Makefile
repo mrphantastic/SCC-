@@ -45,6 +45,8 @@ intList.o:	intList.c  intList.h
 
 scc03.o:	scc03.c  intList.h dfsTrace1.h loadGraph.h edgeList.h stack.h dfsPhase2.h
 	${CC}  -c  ${CFLAGS}  scc03.c
+clean:
+	${RM}  scc03 *.o *~
 submit03:	
 	submit cmps101-avg.f15 pa03 scc03.c  intList.c intList.h dfsTrace1.c dfsTrace1.h loadGraph.c loadGraph.h edgeList.c edgeList.h stack.c stack.h dfsPhase2.c dfsPhase2.h
 

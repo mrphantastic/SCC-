@@ -2,10 +2,14 @@
 #include <stdlib.h>
 #include "edgeList.h"
 
+////////// DATA STRUCTURES //////////
+
 struct EdgeListNode{
    EdgeInfo element;
    EdgeList next;
 }; EdgeList edgenil = NULL; 
+
+////////// FUNCTIONS //////////
   
 EdgeInfo edgeFirst(EdgeList oldL){
    return oldL->element; 
